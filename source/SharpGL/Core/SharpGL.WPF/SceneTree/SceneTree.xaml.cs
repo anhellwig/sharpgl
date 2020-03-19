@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -24,7 +25,7 @@ namespace SharpGL.WPF.SceneTree
         {
             InitializeComponent();
 
-            if (Apex.Design.DesignTime.IsDesignTime)
+            if (IsDesignTime)
             {
                 //  Initialise the scene.
                 Scene = new SceneGraph.Scene();
@@ -47,7 +48,17 @@ namespace SharpGL.WPF.SceneTree
         {
             SceneTree me = o as SceneTree;
         }
-                
- 
+
+        private static bool IsDesignTime
+        {
+            get
+            {
+#if SILVERLIGHT
+                    return DesignerProperties.IsInDesignTool;
+#else
+                return DesignerProperties.GetIsInDesignMode(new DependencyObject());
+#endif
+            }
+        }
     }
 }

@@ -233,7 +233,7 @@ namespace SharpGL.Serialization.Wavefront
                             string[] parts = index.Split(new char[] { '/' }, StringSplitOptions.None);
 
                             //  Add each part.
-                            face.Indices.Add(new Index(
+                            face.Indices.Add(new SceneGraph.Index(
                                 (parts.Length > 0 && parts[0].Length > 0) ? int.Parse(parts[0]) - 1 : -1,
                                 (parts.Length > 1 && parts[1].Length > 0) ? int.Parse(parts[1]) - 1 : -1,
                                 (parts.Length > 2 && parts[2].Length > 0) ? int.Parse(parts[2]) - 1 : -1));

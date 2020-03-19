@@ -82,7 +82,7 @@ namespace SharpGL.Serialization.Caligari
 
                 //	Now read the indices, a vertex index and a uv index.
                 for (short j = 0; j < verticesInFace; j++)
-                    face.Indices.Add(new Index(reader.ReadInt32(), reader.ReadInt32()));
+                    face.Indices.Add(new SceneGraph.Index(reader.ReadInt32(), reader.ReadInt32()));
             }
 
             //	Any extra stuff?
